@@ -16,6 +16,7 @@ addLayer("b", {
     gainMult() {
         let mult = new Decimal(1)
         if (hasUpgrade('b', 14)) mult = mult.times(upgradeEffect('b', 14))
+        if (hasUpgrade('b', 15)) mult = mult.times(upgradeEffect('b', 15))
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -47,13 +48,18 @@ addLayer("b", {
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
         },
         14: {
-            title: "work please",
+            title: "Because why not?",
             description: "Boost beta gain based on alpha",
             cost: new Decimal(10),
             effect() {
                 return player.points.add(1).pow(0.15)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
+        },
+        15: {
+            title: "Very nice upgrade",
+            description: "5x alpha and 2.5x beta",
+            cost: new Decimal(25),
         },
     },
 })

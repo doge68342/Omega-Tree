@@ -31,5 +31,10 @@ addLayer("b", {
             description: "Double your point gain",
             cost: new Decimal(1)
         },
+        12: {
+            title: "The matrix",
+            description: "50% more points, horay!",
+            cost: new Decimal(5)
+        },
     },
 })

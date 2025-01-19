@@ -60,6 +60,9 @@ addLayer("b", {
             title: "Very nice upgrade",
             description: "5x alpha and 2.5x beta",
             cost: new Decimal(25),
+            effect() {
+                return new Decimal(2.5)
+            },
         },
     },
 })

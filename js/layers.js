@@ -24,5 +24,12 @@ addLayer("b", {
     hotkeys: [
         {key: "b", description: "b: Reset for beta points", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
+    upgrades: {
+        11: {
+            title: "The coolest upgrade",
+            description: "Double your point gain",
+            cost: new Decimal(1)
+        },
+    },
 })

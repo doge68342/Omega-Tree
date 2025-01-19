@@ -13,9 +13,8 @@ addLayer("b", {
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
-    gainMult() {
-        let mult = new Decimal(1)
-        if (hasUpgrade('p', 14)) mult = mult.times(upgradeEffect('p', 14))
+    gainMult() { // Calculate the multiplier for main currency from bonuses
+        mult = new Decimal(1)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -45,14 +44,6 @@ addLayer("b", {
                 return player[this.layer].points.add(1).pow(0.5)
             },
             effectDisplay() { return format(upgradeEffect(this.layer, this.id))+"x" }, // Add formatting to the effect
-        },
-        14: {
-            title: "because why not?",
-            description: "Boost beta gain based on alpha",
-            cost: new Decimal(10),
-            effect() {
-                return player.points.add(1).pow(0.15)
-            },
         },
     },
 })

@@ -32,11 +32,6 @@ addLayer("b", {
             cost: new Decimal(1),
         },
         12: {
-            title: "The matrix",
-            description: "50% more alpha, horay!",
-            cost: new Decimal(3),
-        },
-        13: {
             title: "Upgraded Upgrade",
             description: "Boost alpha gain based on beta",
             cost: new Decimal(5),

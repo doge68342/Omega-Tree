@@ -17,6 +17,7 @@ addLayer("b", {
         let mult = new Decimal(1)
         if (hasUpgrade('b', 14)) mult = mult.times(upgradeEffect('b', 14))
         if (hasUpgrade('b', 15)) mult = mult.times(upgradeEffect('b', 15))
+        if (hasUpgrade('y', 11)) mult = mult.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -84,7 +85,6 @@ addLayer("y", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() {
         let mult = new Decimal(1)
-        if (hasUpgrade('y', 11)) gain = gain.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses

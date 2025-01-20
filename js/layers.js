@@ -76,7 +76,7 @@ addLayer("y", {
 		points: new Decimal(0),
     }},
     color: "#ffb861",
-    requires: new Decimal(100), // Can be a function that takes requirement increases into account
+    requires: new Decimal(200), // Can be a function that takes requirement increases into account
     resource: "gamma points", // Name of prestige currency
     baseResource: "beta", // Name of resource prestige is based on
     baseAmount() {return player.b.points}, // Get the current amount of baseResource
@@ -96,8 +96,8 @@ addLayer("y", {
     layerShown(){return true},
     upgrades: {
         11: {
-            title: "The coolest upgrade",
-            description: "Double your alpha gain",
+            title: "This will help",
+            description: "alpha ^ 1.1",
             cost: new Decimal(1),
         },
     },

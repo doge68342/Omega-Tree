@@ -76,10 +76,10 @@ addLayer("y", {
 		points: new Decimal(0),
     }},
     color: "#ffb861",
-    requires: new Decimal(10), // Can be a function that takes requirement increases into account
+    requires: new Decimal(100), // Can be a function that takes requirement increases into account
     resource: "gamma points", // Name of prestige currency
     baseResource: "beta", // Name of resource prestige is based on
-    baseAmount() {return player.points}, // Get the current amount of baseResource
+    baseAmount() {return player.b.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() {

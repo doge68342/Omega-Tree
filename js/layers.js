@@ -8,7 +8,7 @@ addLayer("b", {
     }},
     color: "#de4e4e",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
-    resource: "beta points", // Name of prestige currency
+    resource: "beta", // Name of prestige currency
     baseResource: "alpha", // Name of resource prestige is based on
     baseAmount() {return player.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
@@ -77,13 +77,14 @@ addLayer("y", {
     }},
     color: "#ffb861",
     requires: new Decimal(200), // Can be a function that takes requirement increases into account
-    resource: "gamma points", // Name of prestige currency
+    resource: "gamma", // Name of prestige currency
     baseResource: "beta", // Name of resource prestige is based on
     baseAmount() {return player.b.points}, // Get the current amount of baseResource
     type: "normal", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
     exponent: 0.5, // Prestige currency exponent
     gainMult() {
         let mult = new Decimal(1)
+        if (hasUpgrade('y', 11)) gain = gain.times(3)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -96,9 +97,14 @@ addLayer("y", {
     layerShown(){return true},
     upgrades: {
         11: {
+            title: "beta beta beta",
+            description: "Gain 3 times more beta",
+            cost: new Decimal(1),
+        },
+        12: {
             title: "This will help",
             description: "alpha ^ 1.1",
-            cost: new Decimal(1),
+            cost: new Decimal(4),
         },
     },
 })
